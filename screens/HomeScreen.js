@@ -32,7 +32,12 @@ export default class HomeScreen extends React.Component {
   _restartAsync = async () => {
     await AsyncStorage.removeItem('onBoarded')
     await AsyncStorage.removeItem('userToken')
-    Expo.Updates.reload()
+    this.props.navigation.navigate('AppLoading')
+  }
+
+  _signoutAsync = async () => {
+    await AsyncStorage.removeItem('userToken')
+    this.props.navigation.navigate('AuthLoading')
   }
 
   _maybeRenderDevelopmentModeWarning() {
@@ -75,6 +80,7 @@ export default class HomeScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             <Text style={styles.getStartedText}>Home Screen</Text>
             <Button title="Restart" onPress={this._restartAsync} />
+            <Button title="Sign out!" onPress={this._signoutAsync} />
           </View>
         </ScrollView>
 
