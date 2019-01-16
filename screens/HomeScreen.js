@@ -11,13 +11,16 @@ import {
   View,
 } from 'react-native'
 import { WebBrowser } from 'expo'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import { MonoText } from '../components/StyledText'
+import LookAndFeel from '../constants/LookAndFeel'
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Main App',
-  }
+    ...LookAndFeel.drawerMenu({ navigation }),
+  })
 
   _handleLearnMorePress = () => {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode')
