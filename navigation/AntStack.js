@@ -43,7 +43,7 @@ const AntStack = createStackNavigator(
     navigationOptions: {
       drawerLabel: 'นักเรียน',
       drawerIcon: ({ tintColor }) => (
-        <MaterialIcons name="move-to-inbox" size={24} style={{ color: Colors.txtWhite }} />
+        <MaterialIcons name="move-to-inbox" size={24} style={{ color: tintColor }} />
       ),
     },
   }
