@@ -1,3 +1,4 @@
+/* global __DEV__ */
 import React from 'react'
 import { AsyncStorage, ScrollView, View, Image, StyleSheet, Text, Button } from 'react-native'
 

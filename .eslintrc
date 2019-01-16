@@ -12,6 +12,7 @@
       { "functions": true, "classes": true, "variables": false }
     ],
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "react/display-name": false,
     "react/jsx-filename-extension": [
       1,
       {

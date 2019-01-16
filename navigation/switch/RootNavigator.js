@@ -1,8 +1,8 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 
 import AppNavigator from './AppNavigator'
-import OnboardingScreen from '../screens/OnboardingScreen'
-import AppLoadingScreen from '../screens/AppLoadingScreen'
+import OnboardingScreen from '../../screens/OnboardingScreen'
+import AppLoadingScreen from '../../screens/AppLoadingScreen'
 
 export default createAppContainer(
   createSwitchNavigator(
