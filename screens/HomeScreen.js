@@ -10,13 +10,13 @@ import {
   Button,
   View,
 } from 'react-native'
-import { WebBrowser, Expo } from 'expo'
+import { WebBrowser } from 'expo'
 
 import { MonoText } from '../components/StyledText'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'Main App',
   }
 
   _handleLearnMorePress = () => {

@@ -7,12 +7,15 @@ import HomeScreen from '../screens/HomeScreen'
 import LinksScreen from '../screens/LinksScreen'
 import SettingsScreen from '../screens/SettingsScreen'
 
+import LookAndFeel from '../constants/LookAndFeel'
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 })
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  tabBarOptions: LookAndFeel.defaultTabBarOptions,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -31,6 +34,7 @@ const LinksStack = createStackNavigator({
 
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
+  tabBarOptions: LookAndFeel.defaultTabBarOptions,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
@@ -42,6 +46,7 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
+  tabBarOptions: LookAndFeel.defaultTabBarOptions,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),

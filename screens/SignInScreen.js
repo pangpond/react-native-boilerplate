@@ -4,7 +4,7 @@ import { AsyncStorage, ScrollView, View, Image, StyleSheet, Text, Button } from 
 
 export default class SignInScreen extends React.Component {
   static navigationOptions = {
-    title: 'Please sign in',
+    header: null,
   }
 
   _signInAsync = async () => {

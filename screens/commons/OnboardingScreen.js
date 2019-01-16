@@ -2,8 +2,6 @@
 import React from 'react'
 import { AsyncStorage, ScrollView, View, Image, StyleSheet, Text, Button } from 'react-native'
 
-import { MonoText } from '../components/StyledText'
-
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Onboarding',
@@ -22,8 +20,8 @@ export default class LinksScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/robot-dev.png') /* eslint-disable-line global-require */
-                  : require('../assets/images/robot-prod.png') /* eslint-disable-line global-require */
+                  ? require('../../assets/images/robot-dev.png') /* eslint-disable-line global-require */
+                  : require('../../assets/images/robot-prod.png') /* eslint-disable-line global-require */
               }
               style={styles.welcomeImage}
             />
