@@ -22,6 +22,9 @@ const colors = {
   bgSmoke: '#f0f0f0',
   bgCloud: '#f7f7f7',
   bgTickTick: '#242B55',
+  tintTickTick: '#1F2650',
+  bgTickTickDark: '#10141F',
+  tintTickTickDark: '#1F212D',
 
   bdMain: '#00a699',
   bdWhite: '#ffffff',
@@ -64,5 +67,7 @@ export default {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
-  drawerBackground: colors.bgTickTick,
+  drawerBackground: colors.bgTickTickDark,
+  txtWhite: colors.txtWhite,
+  drawerBackgroundActive: colors.tintTickTickDark,
 }

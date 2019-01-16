@@ -33,6 +33,14 @@ const Drawer = createDrawerNavigator(
   {
     initialRouteName: 'Ant',
     contentComponent: CustomDrawerContentComponent,
+    contentOptions: {
+      activeBackgroundColor: Colors.drawerBackgroundActive,
+      // itemStyle: { color: Colors.txtWhite },
+      // iconContainerStyle: { color: Colors.txtWhite },
+      labelStyle: { color: Colors.txtWhite },
+      // activeTintColor: { color: Colors.txtWhite },
+      // inactiveTintColor: { color: Colors.txtWhite },
+    },
   }
 )
 

@@ -9,7 +9,7 @@ const defaultTabBarOptions = {
 
 const defaultScreenNavigationOptions = {
   headerStyle: { backgroundColor: Colors.txtMainRed },
-  headerTintColor: Colors.txtWhite,
+  headerTintColor: Colors.tintColor,
 }
 
 const drawerMenu = ({ navigation }) => ({
@@ -18,7 +18,7 @@ const drawerMenu = ({ navigation }) => ({
       onPress={() => navigation.openDrawer()}
       name="menu"
       size={24}
-      style={{ color: Colors.txtWhite, paddingLeft: 10 }}
+      style={{ color: Colors.tintColor, paddingLeft: 10 }}
     />
   ),
 })
