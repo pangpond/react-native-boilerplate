@@ -1,10 +1,12 @@
 import React from 'react'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
 import { AppLoading, Asset, Font, Icon } from 'expo'
-import { ReduxNetworkProvider, NetworkConsumer, NetworkProvider } from 'react-native-offline'
+import { ApolloProvider } from 'react-apollo'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/es/integration/react'
+import { ReduxNetworkProvider, NetworkConsumer, NetworkProvider } from 'react-native-offline'
 
+import client from './services/apollo/client'
 import { store, persistor } from './services/store'
 
 import RootNavigator from './navigation/switch/RootNavigator'
@@ -58,20 +60,22 @@ export default class App extends React.Component {
     }
     return (
       <ThemeContextProvider>
-        <Provider store={store}>
-          <PersistGate loading={<Loader />} persistor={persistor}>
-            <View style={styles.container}>
-              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-              <ReduxNetworkProvider>
-                <NetworkProvider>
-                  <NetworkConsumer>
-                    {({ isConnected }) => (isConnected ? <RootNavigator /> : <NoInternet />)}
-                  </NetworkConsumer>
-                </NetworkProvider>
-              </ReduxNetworkProvider>
-            </View>
-          </PersistGate>
-        </Provider>
+        <ApolloProvider client={client}>
+          <Provider store={store}>
+            <PersistGate loading={<Loader />} persistor={persistor}>
+              <View style={styles.container}>
+                {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+                <ReduxNetworkProvider>
+                  <NetworkProvider>
+                    <NetworkConsumer>
+                      {({ isConnected }) => (isConnected ? <RootNavigator /> : <NoInternet />)}
+                    </NetworkConsumer>
+                  </NetworkProvider>
+                </ReduxNetworkProvider>
+              </View>
+            </PersistGate>
+          </Provider>
+        </ApolloProvider>
       </ThemeContextProvider>
     )
   }
