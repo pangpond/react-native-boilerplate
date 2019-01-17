@@ -13,7 +13,7 @@ const CustomDrawerContentComponent = (props) => {
   return (
     <ScrollView style={{ backgroundColor: colors.drawerBackground }}>
       <SafeAreaView style={[styles.container]} forceInset={{ top: 'always', horizontal: 'never' }}>
-        <Text>0855198189</Text>
+        <Text>Username</Text>
         <DrawerItems {...props} />
       </SafeAreaView>
     </ScrollView>

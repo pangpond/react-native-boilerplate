@@ -11,7 +11,6 @@ import {
   View,
 } from 'react-native'
 import { WebBrowser } from 'expo'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import { MonoText } from '../components/StyledText'
 import LookAndFeel from '../constants/LookAndFeel'
