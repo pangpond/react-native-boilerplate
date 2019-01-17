@@ -68,6 +68,6 @@ export default {
   noticeBackground: tintColor,
   noticeText: '#fff',
   txtWhite: colors.txtWhite,
-  drawerBackground: colors.txtWhite,
+  drawerBackground: colors.bgMainDark,
   drawerBackgroundActive: '#F96900',
 }

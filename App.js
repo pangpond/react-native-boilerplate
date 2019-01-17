@@ -2,6 +2,7 @@ import React from 'react'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
 import { AppLoading, Asset, Font, Icon } from 'expo'
 import RootNavigator from './navigation/switch/RootNavigator'
+import { ThemeContextProvider } from './context/ThemeContext'
 
 export default class App extends React.Component {
   state = {
@@ -47,10 +48,12 @@ export default class App extends React.Component {
       )
     }
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <RootNavigator />
-      </View>
+      <ThemeContextProvider>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <RootNavigator />
+        </View>
+      </ThemeContextProvider>
     )
   }
 }

@@ -1,19 +1,28 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ScrollView, Text, StyleSheet } from 'react-native'
 import { createDrawerNavigator, SafeAreaView, DrawerItems } from 'react-navigation'
 
 import AntStack from './AntStack'
-
 import Colors from '../constants/Colors'
+import { withThemeContext } from '../context/ThemeContext'
 
-const CustomDrawerContentComponent = (props) => (
-  <ScrollView style={{ backgroundColor: Colors.drawerBackground }}>
-    <SafeAreaView style={[styles.container]} forceInset={{ top: 'always', horizontal: 'never' }}>
-      <Text>0855198189</Text>
-      <DrawerItems {...props} />
-    </SafeAreaView>
-  </ScrollView>
-)
+const CustomDrawerContentComponent = (props) => {
+  const { colors } = props
+
+  return (
+    <ScrollView style={{ backgroundColor: colors.drawerBackground }}>
+      <SafeAreaView style={[styles.container]} forceInset={{ top: 'always', horizontal: 'never' }}>
+        <Text>0855198189</Text>
+        <DrawerItems {...props} />
+      </SafeAreaView>
+    </ScrollView>
+  )
+}
+
+CustomDrawerContentComponent.propTypes = {
+  colors: PropTypes.object.isRequired /* eslint-disable-line */,
+}
 
 const Drawer = createDrawerNavigator(
   {
@@ -32,7 +41,7 @@ const Drawer = createDrawerNavigator(
   },
   {
     initialRouteName: 'Ant',
-    contentComponent: CustomDrawerContentComponent,
+    contentComponent: withThemeContext(CustomDrawerContentComponent),
     contentOptions: {
       activeBackgroundColor: Colors.drawerBackgroundActive,
       itemStyle: { color: Colors.txtWhite },
