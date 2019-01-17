@@ -1,8 +1,17 @@
 import React from 'react'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
 import { AppLoading, Asset, Font, Icon } from 'expo'
+import { ReduxNetworkProvider, NetworkConsumer, NetworkProvider } from 'react-native-offline'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/es/integration/react'
+
+import { store, persistor } from './services/store'
+
 import RootNavigator from './navigation/switch/RootNavigator'
 import { ThemeContextProvider } from './context/ThemeContext'
+
+import NoInternet from './screens/commons/NoInternet'
+import Loader from './components/Loader'
 
 export default class App extends React.Component {
   state = {
@@ -49,10 +58,20 @@ export default class App extends React.Component {
     }
     return (
       <ThemeContextProvider>
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <RootNavigator />
-        </View>
+        <Provider store={store}>
+          <PersistGate loading={<Loader />} persistor={persistor}>
+            <View style={styles.container}>
+              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+              <ReduxNetworkProvider>
+                <NetworkProvider>
+                  <NetworkConsumer>
+                    {({ isConnected }) => (isConnected ? <RootNavigator /> : <NoInternet />)}
+                  </NetworkConsumer>
+                </NetworkProvider>
+              </ReduxNetworkProvider>
+            </View>
+          </PersistGate>
+        </Provider>
       </ThemeContextProvider>
     )
   }

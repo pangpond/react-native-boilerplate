@@ -1,6 +1,7 @@
 import React from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
+import Styles from './Styles'
 import Colors from './Colors'
 
 const defaultTabBarOptions = {
@@ -27,4 +28,5 @@ export default {
   defaultTabBarOptions,
   defaultScreenNavigationOptions,
   drawerMenu,
+  Styles,
 }

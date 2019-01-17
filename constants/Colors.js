@@ -70,4 +70,5 @@ export default {
   txtWhite: colors.txtWhite,
   drawerBackground: colors.txtWhite,
   drawerBackgroundActive: '#F96900',
+  defaultTextColor: '#213037',
 }
